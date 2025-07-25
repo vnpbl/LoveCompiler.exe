@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LoveCompiler.exe</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #1e1e1e;
+      color: #9efcfc;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .terminal {
+      background: #111;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 650px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      white-space: pre-wrap;
+      font-size: 1rem;
+      text-align: left;
+      position: relative;
+    }
+
+    .terminal::before {
+      content: "LoveCompiler.exe";
+      position: absolute;
+      top: -25px;
+      left: 15px;
+      background: #111;
+      color: white;
+      padding: 5px 10px;
+      font-size: 0.9rem;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .cursor {
+      animation: blink 1s steps(2, start) infinite;
+      display: inline-block;
+    }
+
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="terminal" id="terminal">
+    <span id="output"></span><span class="cursor">|</span>
+  </div>
+
+  <script>
+    const lines = [
+      { text: "> Compiling feelings...         ", delay: 1000 },
+      { text: "> Importing 'You' module...     ", delay: 1000 },
+      { text: "> Loading monthsary package...  ", delay: 1000 },
+      { text: "> Running love_script.py...     ", delay: 1000 },
+      { text: "", delay: 1000 },
+
+      // Pickup lines (8s delay each)
+      { text: "// Walang need for authentication — you already have access sa heart ko.", delay: 8000 },
+      { text: "// If we were a program, our runtime has been smooth for 19 months na — walang lag, walang crash.", delay: 8000 },
+      { text: "// We've been in a loop for 19 months na, and honestly, I don’t wanna break it.", delay: 8000 },
+      { text: "// 19 months later and you’re still the top result sa search query ng puso ko.", delay: 8000 },
+      { text: "// You’re the only user with admin access sa heart ko — for 19 months and counting.", delay: 8000 },
+      { text: "// Ang corny ba? hehe", delay: 1000 },
+
+      { text: "", delay: 1000 },
+      { text: "Output:", delay: 1000 },
+      { text: "Happy 19 Months, Baby!", delay: 1000 },
+      { text: "I'm so sorry for being busy with acads.", delay: 1000 },
+      { text: "I promise to make bawi soon. I miss you sobra na po", delay: 1000 },
+      { text: "Hope to see you soon please!", delay: 1000 },
+      { text: "", delay: 1000 },
+      { text: "I love you so muchie, my Lara!", delay: 1000 }
+    ];
+
+    const outputEl = document.getElementById("output");
+    let i = 0;
+
+    function typeLine() {
+      if (i < lines.length) {
+        outputEl.innerHTML += lines[i].text + '\n';
+        setTimeout(typeLine, lines[i].delay);
+        i++;
+      }
+    }
+
+    window.onload = typeLine;
+  </script>
+
+</body>
+</html>
